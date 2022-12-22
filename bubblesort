@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+typedef int Item;
+
+#define less(A,B) (A<B)
+#define exch(A,B) {Item tt=A;\
+                     A=B;\ 
+                     B=tt;\
+                    }
+
+void bubblesort(Item *v, int l, int r){
+    for(int i=l; i<r; i++){
+        for(int j=l; j<r; j++){
+            if(less(v[j+1],v[j])){
+                exch(v[j+1],v[j]);
+            }
+        }
+    }
+}
+
+int main(){
+    int lenght;
+    scanf("%d\n",&lenght);
+    int v[lenght];
+
+    for(int i =0 ; i<lenght ; i++){
+        scanf("%d", &v[i]);
+    }
+
+    bubblesort(v,0,lenght-1);
+
+    for (int i = 0 ; i<lenght ; i++){
+        printf("indice = %d numero = %d\n",i,v[i]);
+    }
+}
+
